@@ -1,2 +1,2 @@
-users.php dosyasının içerisine JSON verileri oluşturup angular.js ve node.js kullanarak bu verileri listelemeye çalıştım.
-Angular.js'ye başlangıç için faydalı bir egzersiz oldu.
+I created JSON data in users.php file and tried to list these data by using AngularJS and NodeJS.
+That was a good example for beginner me on AngularJS.
