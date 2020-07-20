@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="script.js"></script>
+    <title>AJAX API Tut.</title>
+</head>
+
+<body>
+    <div class="container" ng-controller="AppController">
+        <div class="header">
+            <h1>AJAX API TUTORIAL</h1>
+        </div>
+        
+
+        <div class="top-field">
+            <div class="read-button">
+                <button id="get-button" ng-click="bring()">Read/Get Products</button> <!--GET METHOD-->
+            </div>
+            <div class="input-field">
+                <form id="create-form"> <!--POST/CREATING PRODUCT-->
+                    <input type="text" id="create-input" ng-model="product.name">
+                    <button id="post-button" ng-click="createProduct()">Create/POST</button>
+                    
+                </form>
+            </div>
+        </div>
+
+            
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th id="nameHeader">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="list-items" ng-repeat="product in products">
+                    <td>{{product.id}}</td>
+                    <td><input id="name-input" type="text" ng-model="productName" ng-value="product.name">
+                        <span>{{productName}}</span>
+                    </td>
+                    <td><button id="update-button" ng-click="updateProduct(productName, product)">Update/PUT</button></td>
+                    <td><button id="delete-button" ng-click="deleteProduct(product.id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+
+    </div>
+
+
+
+
+</body>
+
+</html>
