@@ -19,13 +19,14 @@ angular.module('todoApp', [])
             })
         }
 
-        /*$scope.updateProduct = function (productName, product) {
+        $scope.updateProduct = function (productName, product) {
             console.log("Burası $scope.productName: " + productName)
             console.log(product.id)
-            $http.put("/products/:"+ product.id, JSON.stringify(product)).then(function(response){
+            product.name = productName;
+            $http.put("/products/"+ product.id, JSON.stringify(product)).then(function(response){
                 console.log(product.id +"***")
             })
-        }*/
+        }
 
         $scope.deleteProduct = function(productid) {
             return $http.delete('/products/'+productid)

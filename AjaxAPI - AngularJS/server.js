@@ -38,28 +38,22 @@ app.post('/products', function(req,res){
     res.send("Successfully created product")
 })
 
-/*app.put('/products/:id', function(req, res){
+app.put('/products/:id', function(req, res){
     console.log("Burası req.body: " + req.body);
     var id = req.params.id //String
     console.log("burası id: " + id)
     var newName = req.body.name;
     console.log("Burası newName: "+ newName)
-    
 
-    products.forEach(function(product, index){
-        if (product.id === Number(id)) {
-            product.name = newName;  //laptop=laptop oluyor
-            console.log(product.name + " yehuu")
-        } else{
-            console.log("OLMADIIIII")
-        }
-    })
+    const index = products.findIndex(product => product.id === Number(id));
+    products[index].name = newName;
+    
     res.send('UPDATED');
-})*/
+})
 
 app.delete('/products/:id', function(req, res){
     var id = req.params.id;
-
+    
     const index = products.findIndex(product => product.id === Number(id));
     products.splice(index, 1);
 
