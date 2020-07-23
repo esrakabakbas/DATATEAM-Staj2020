@@ -42,8 +42,8 @@
             <tbody>
                 <tr id="list-items" ng-repeat="product in products">
                     <td>{{product.id}}</td>
-                    <td><input id="name-input" type="text" ng-model="productName" ng-value="product.name"></td>
-                    <td><button id="update-button" ng-click="updateProduct(productName, product)">Update/PUT</button></td>
+                    <td><input id="name-input" type="text" ng-model="product.name"></td>
+                    <td><button id="update-button" ng-click="updateProduct(product.name, product)">Update/PUT</button></td>
                     <td><button id="delete-button" ng-click="deleteProduct(product.id)">Delete</button></td>
                 </tr>
             </tbody>

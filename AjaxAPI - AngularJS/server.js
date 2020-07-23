@@ -39,7 +39,7 @@ app.post('/products', function(req,res){
 })
 
 app.put('/products/:id', function(req, res){
-    console.log("Burası req.body: " + req.body);
+    console.log("Burası req.body.id: " + req.params.id);
     var id = req.params.id //String
     console.log("burası id: " + id)
     var newName = req.body.name;
