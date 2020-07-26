@@ -4,37 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>ToDo App</title>
 </head>
 
-<body class="w-75 mx-auto my-4">
+<body class="">
 
-    <div class=container ng-controller="todoController">
+    <div class="container" ng-controller="todoController">
         <h1>ToDo App</h1>
         <hr>
 
-        <div class="create-field" style="position: relative;">
-            <form class="form-inline" ng-submit="todoAdd()">
-                <input type="text" class="form-control mb-2 mr-sm-2" ng-model="x.todotext" id="inlineFormInputName2"
+        <div class="create-field" style="margin: 40px 0px 20px 0px">
+            <form ng-submit="todoAdd()">
+                <input type="text" ng-model="x.todotext" id="inlineFormInput"
                     placeholder="Add ToDo">
-                <button type="submit" class="btn btn-primary mb-2">Add</button>
+                <button type="submit" class="btn-submit">Add</button>
             </form>
         </div>
 
 
 
         <div class="row">
-            <div class="col">
+            <div class="col-todo">
                 <div class="" ng-repeat="x in todolist">
                     <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
                 </div>
 
-                <p><button class="btn btn-warning" style="margin-top: 10px;" ng-click=remove()>Remove</button></p>
+                <p><button class="remove-button" style="margin-top: 10px;" ng-click=remove()>Remove</button></p>
             </div>
 
-            <div class="col">
+            <hr>
+
+            <div class="col-done">
                 <table class="table">
                     <thead>
                         <tr>
@@ -52,6 +54,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <p><button class="remove-button-here" style="margin-top: 10px;" ng-click=addToTodo()>Remove From Here</button></p>
 
             </div>
 

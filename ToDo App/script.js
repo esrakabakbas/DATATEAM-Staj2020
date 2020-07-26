@@ -29,7 +29,7 @@ angular.module('todoApp', []).controller('todoController', function ($scope, $ht
     $scope.remove = function () {
         console.log($scope.todolist + " /*/*/*")
         $scope.doneList = $scope.todolist.filter(checkTrue);
-        console.log($scope.doneList);
+        
 
         for (let i = 0; i < $scope.todolist.length; i++) {
             if ($scope.todolist[i].done) {
@@ -38,7 +38,16 @@ angular.module('todoApp', []).controller('todoController', function ($scope, $ht
         }
 
         refresh();
+    }
 
+    $scope.addToTodo = function(){
+        console.log("BURAYA BAK: " + $scope.item);
+        if(!$scope.item.done){
+            $http.post("/todos/move", $scope.item).then(function(response){
+                console.log("new response: "+ response)
+            })
+        }
+        
     }
 
 })

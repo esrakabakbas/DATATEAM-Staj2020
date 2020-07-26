@@ -2,11 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 
-var todos = [
-    
-]
+var todos = []
 
-var currentId = 3;
+var currentId = 0;
 var PORT = process.env.PORT || 3000;
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
@@ -37,6 +35,16 @@ app.post("/todos", function(req,res){
     }); 
     res.send("Successfully added!")
 } )
+
+app.post("/todos/move/", function(req, res){
+    todos.push({
+        id: req.body.id,
+        todoText: req.body.todotext,
+        done: false
+    })
+
+    res.send("Moved!")
+})
 
 
 
