@@ -31,17 +31,12 @@ angular.module('productsApp', [])
 
     $scope.updateProduct = function(id){
         console.log(id + " buraaaa");
-
-        $http.get('/products/' + id).then(function(response) {
-            $scope.product = response.data;
-            console.log(response.data.name)
-            console.log($scope.product.name + " name buraaaa");
-
-            $http.put("/products/"+$scope.product._id, $scope.product).then(function(response){
-                bring();
-            })
-          });
-        
+       
+        $scope.product = $scope.products.find(product => product._id === id)
+        $http.put("/products/"+$scope.product._id, $scope.product).then(function(response){
+            bring();
+        })
+          
         
     }
 

@@ -32,13 +32,6 @@ app.delete("/products/:id", function(req,res){
     })
 })
 
-app.get("/products/:id", function(req,res){
-    var id = req.params.id;
-    console.log(id + " serverside id");
-    db.products.findOne({_id: mongojs.ObjectId(id)}, function(err, doc){
-        res.json(doc);
-    })
-})
 
 app.put("/products/:id", function(req, res){
     var id = req.params.id;
